@@ -3,6 +3,8 @@ MAINTAINER Daniel Guerra
 ADD /apk /apk
 RUN cp /apk/.abuild/-58b83ac3.rsa.pub /etc/apk/keys
 RUN apk --no-cache --update add /apk/x11vnc-0.9.13-r0.apk
+RUN apk --no-cache add dbus firefox-esr
+RUN apk add --update ttf-freefont
 RUN apk --no-cache add xvfb openbox xfce4-terminal supervisor sudo \
 && addgroup alpine \
 && adduser  -G alpine -s /bin/sh -D alpine \
