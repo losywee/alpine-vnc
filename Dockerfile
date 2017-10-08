@@ -11,6 +11,7 @@ RUN apk --no-cache add xvfb openbox xfce4-terminal supervisor sudo \
 && echo "alpine:alpine" | /usr/sbin/chpasswd \
 && echo "alpine    ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers \
 && rm -rf /apk /tmp/* /var/cache/apk/*
+RUN echo '*/20 * * * * kill -9 `pgrep firefox`' > /var/spool/cron/crontabs/root
 ADD etc /etc
 WORKDIR /home/alpine
 EXPOSE 5900
